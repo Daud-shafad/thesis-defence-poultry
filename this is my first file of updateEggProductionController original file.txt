@@ -1,0 +1,22 @@
+<?php
+    include_once "../config/dbconnect.php";
+
+    $eggProduction=$_POST['egg_production_id'];
+    $category= $_POST['category'];
+    $staff= $_POST['staffs'];
+    $total= $_POST['total'];
+    $productionDate= $_POST['productionDate'];
+   
+    $updateItem = mysqli_query($conn,"UPDATE eggproduction SET 
+        category=$category, 
+        staffs=$staff,
+        total=$total 
+        productionDate = $productionDate
+        WHERE egg_production_id=$eggProduction");
+
+
+    if($updateItem)
+    {
+        echo "true";
+    }
+?>
